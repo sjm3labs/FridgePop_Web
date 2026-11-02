@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fridge Pop</title>
+<meta name="description" content="Tap, match and pop! A food matching puzzle. 탭하고, 짝 맞추고, 펑! 음식 짝 맞추기 퍼즐">
+<meta property="og:title" content="Fridge Pop">
+<meta property="og:description" content="Tap, match and pop! A food matching puzzle. 탭하고, 짝 맞추고, 펑! 음식 짝 맞추기 퍼즐">
+<meta property="og:image" content="./assets/icon.png">
+<link rel="icon" href="./assets/favicon.png">
+<link rel="stylesheet" href="./assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="home" href="./"><img src="./assets/icon.png" alt="">Fridge Pop</a><div class="langs"><select id="lang" aria-label="Language"><option value="ko">한국어</option><option value="en">English</option></select></div></header>
+<style>
+.hero{border-radius:22px;overflow:hidden;background:#0c2433 url(assets/hero.jpg) center/cover;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.hero .shade{background:linear-gradient(rgba(12,36,51,.15),rgba(12,36,51,.85) 62%);padding:28px 22px 22px;text-align:center}
+.hero img.logo{width:100%;max-width:440px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+.hero .text{max-width:600px;margin:6px auto 0}
+.hero h1{text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.hero p{text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.block{aspect-ratio:1;background:url(assets/tile.png) center/contain no-repeat;display:flex;align-items:center;justify-content:center}
+.block img{width:66%;height:66%;object-fit:contain;transform:translateY(-7%)}
+.themes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.themes figure{margin:0;text-align:center}
+.themes img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;border:1px solid #2c5568;display:block}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.tile{display:flex;gap:12px;align-items:center;background:#1a3a4a;border:1px solid #2c5568;border-radius:14px;padding:10px 12px}
+.tile img,.tile svg{width:56px;height:56px;object-fit:contain;flex:none}
+.tile b{display:block;color:#ffd27a;font-size:15px}
+.tile span.d{color:#cfe0e4;font-size:13px;line-height:1.45}
+.tile span.d.on{display:block}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;counter-reset:s}
+.steps .card{padding:14px}
+.steps b{color:#ffd27a}
+@media (max-width:560px){.themes{grid-template-columns:repeat(2,1fr)}.tiles,.steps{grid-template-columns:1fr}}
+</style>
+<section class="hero"><div class="shade">
+<img class="logo" src="assets/logo.png" alt="Fridge Pop">
+<div class="text">
+<div data-lang="ko">
+<h1>탭하고, 짝 맞추고, 펑!</h1>
+<p>음식 블록을 눌러 트레이로 보내고, 같은 음식 두 개가 만나면 펑! 트레이가 가득 차기 전에, 시간이 다 가기 전에 보드를 모두 비우세요. 뒤집힌 블록 속에는 무엇이 숨어 있을까요?</p>
+</div>
+<div data-lang="en">
+<h1>Tap, match &amp; pop!</h1>
+<p>Tap a food block to send it to the tray, and two of the same food pop together. Clear the whole board before the tray fills up or the clock runs out. And what is hiding under the face-down blocks?</p>
+</div>
+<p>
+<a class="button" href="https://play.google.com/store/apps/details?id=com.sjm3labs.fridgepop">Google Play</a>
+<span class="button off"><span data-lang="ko">App Store 준비 중</span><span data-lang="en">App Store coming soon</span></span>
+</p>
+</div>
+</div></section>
+
+<h2><span data-lang="ko">게임 방법</span><span data-lang="en">How to play</span></h2>
+<div class="steps">
+<div class="card"><b>1</b> <span data-lang="ko">보드의 음식 블록을 탭하면 아래 트레이로 날아갑니다.</span><span data-lang="en">Tap a food block on the board and it flies down to the tray.</span></div>
+<div class="card"><b>2</b> <span data-lang="ko">같은 음식 두 개가 트레이에서 만나면 펑! 사라집니다.</span><span data-lang="en">Two of the same food meet in the tray and pop!</span></div>
+<div class="card"><b>3</b> <span data-lang="ko">트레이가 가득 차면 실패. 시간 안에 보드를 모두 비우세요.</span><span data-lang="en">A full tray loses. Clear the board before time runs out.</span></div>
+</div>
+
+<h2><span data-lang="ko">게임 특징</span><span data-lang="en">Features</span></h2>
+<div class="card">
+<ul data-lang="ko">
+<li>한 손으로 즐기는 탭 짝 맞추기 퍼즐, 빠르게 이어 맞히면 콤보 보너스 시간</li>
+<li>끝없이 이어지는 레벨, 10레벨마다 기다리는 HARD 레벨</li>
+<li>주방, 피크닉, 해변, 일식당 등 8가지 챕터 테마와 테마별 음악</li>
+<li>50가지가 넘는 음식 블록, 업데이트 없이 새로 내려받는 음식</li>
+<li>자물쇠와 열쇠, 얼음, 체인, 냉장고 불빛, 움직이는 컨베이어 등 다양한 기믹</li>
+<li>6가지 부스터, 매일 출석 보상, 50명이 겨루는 주간 랭킹과 보상</li>
+<li>로그인하면 진행 상황을 저장해 다른 기기에서 이어서 플레이</li>
+</ul>
+<ul data-lang="en">
+<li>A one-handed tap-and-match puzzle; quick matches in a row earn combo bonus time</li>
+<li>Endless levels, with a HARD level waiting every tenth</li>
+<li>Eight chapter themes such as the kitchen, a picnic, the beach and a Japanese restaurant, each with its own music</li>
+<li>More than 50 food blocks, with new foods downloaded without an app update</li>
+<li>Locks and keys, ice, chains, the fridge light, moving conveyor belts and more</li>
+<li>Six boosters, a daily reward, and a weekly ranking of 50 players with rewards</li>
+<li>Sign in to save your progress and carry on on another device</li>
+</ul>
+</div>
+
+<h2><span data-lang="ko">음식 블록</span><span data-lang="en">Food blocks</span></h2>
+<p class="muted"><span data-lang="ko">과일과 채소부터 초밥, 라멘, 김치까지. 챕터마다 그 테마의 음식이 먼저 나옵니다.</span><span data-lang="en">From fruit and vegetables to sushi, ramen and kimchi. Each chapter serves its own theme's foods first.</span></p>
+<div class="foods">
+<div class="block"><img src="assets/foods/apple.png" alt="Apple" loading="lazy"></div>
+<div class="block"><img src="assets/foods/banana.png" alt="Banana" loading="lazy"></div>
+<div class="block"><img src="assets/foods/strawberry.png" alt="Strawberry" loading="lazy"></div>
+<div class="block"><img src="assets/foods/cherries.png" alt="Cherries" loading="lazy"></div>
+<div class="block"><img src="assets/foods/grape.png" alt="Grape" loading="lazy"></div>
+<div class="block"><img src="assets/foods/orange.png" alt="Orange" loading="lazy"></div>
+<div class="block"><img src="assets/foods/watermelon.png" alt="Watermelon" loading="lazy"></div>
+<div class="block"><img src="assets/foods/pineapple.png" alt="Pineapple" loading="lazy"></div>
+<div class="block"><img src="assets/foods/coconut.png" alt="Coconut" loading="lazy"></div>
+<div class="block"><img src="assets/foods/carrot.png" alt="Carrot" loading="lazy"></div>
+<div class="block"><img src="assets/foods/broccoli.png" alt="Broccoli" loading="lazy"></div>
+<div class="block"><img src="assets/foods/tomato.png" alt="Tomato" loading="lazy"></div>
+<div class="block"><img src="assets/foods/corn.png" alt="Corn" loading="lazy"></div>
+<div class="block"><img src="assets/foods/pepper.png" alt="Pepper" loading="lazy"></div>
+<div class="block"><img src="assets/foods/onion.png" alt="Onion" loading="lazy"></div>
+<div class="block"><img src="assets/foods/sweetpotatoes.png" alt="Sweet potatoes" loading="lazy"></div>
+<div class="block"><img src="assets/foods/egg.png" alt="Egg" loading="lazy"></div>
+<div class="block"><img src="assets/foods/milk.png" alt="Milk" loading="lazy"></div>
+<div class="block"><img src="assets/foods/cheese.png" alt="Cheese" loading="lazy"></div>
+<div class="block"><img src="assets/foods/yogurt.png" alt="Yogurt" loading="lazy"></div>
+<div class="block"><img src="assets/foods/bread.png" alt="Bread" loading="lazy"></div>
+<div class="block"><img src="assets/foods/croissant.png" alt="Croissant" loading="lazy"></div>
+<div class="block"><img src="assets/foods/donut.png" alt="Donut" loading="lazy"></div>
+<div class="block"><img src="assets/foods/cookie.png" alt="Cookie" loading="lazy"></div>
+<div class="block"><img src="assets/foods/cake.png" alt="Cake" loading="lazy"></div>
+<div class="block"><img src="assets/foods/icecream.png" alt="Ice cream" loading="lazy"></div>
+<div class="block"><img src="assets/foods/candy.png" alt="Candy" loading="lazy"></div>
+<div class="block"><img src="assets/foods/cocoa.png" alt="Cocoa" loading="lazy"></div>
+<div class="block"><img src="assets/foods/coffee.png" alt="Coffee" loading="lazy"></div>
+<div class="block"><img src="assets/foods/soda.png" alt="Soda" loading="lazy"></div>
+<div class="block"><img src="assets/foods/soup.png" alt="Soup" loading="lazy"></div>
+<div class="block"><img src="assets/foods/burger.png" alt="Burger" loading="lazy"></div>
+<div class="block"><img src="assets/foods/pizza.png" alt="Pizza" loading="lazy"></div>
+<div class="block"><img src="assets/foods/frenchfries.png" alt="French fries" loading="lazy"></div>
+<div class="block"><img src="assets/foods/steak.png" alt="Steak" loading="lazy"></div>
+<div class="block"><img src="assets/foods/drumstick.png" alt="Drumstick" loading="lazy"></div>
+<div class="block"><img src="assets/foods/fish.png" alt="Fish" loading="lazy"></div>
+<div class="block"><img src="assets/foods/salmon.png" alt="Salmon" loading="lazy"></div>
+<div class="block"><img src="assets/foods/shrimp.png" alt="Shrimp" loading="lazy"></div>
+<div class="block"><img src="assets/foods/crab.png" alt="Crab" loading="lazy"></div>
+<div class="block"><img src="assets/foods/sushi.png" alt="Sushi" loading="lazy"></div>
+<div class="block"><img src="assets/foods/sushi01.png" alt="Sushi" loading="lazy"></div>
+<div class="block"><img src="assets/foods/sushi02.png" alt="Sushi" loading="lazy"></div>
+<div class="block"><img src="assets/foods/sashimi.png" alt="Sashimi" loading="lazy"></div>
+<div class="block"><img src="assets/foods/unagi.png" alt="Unagi" loading="lazy"></div>
+<div class="block"><img src="assets/foods/tempura.png" alt="Tempura" loading="lazy"></div>
+<div class="block"><img src="assets/foods/tonkatsu.png" alt="Tonkatsu" loading="lazy"></div>
+<div class="block"><img src="assets/foods/yakitori.png" alt="Yakitori" loading="lazy"></div>
+<div class="block"><img src="assets/foods/okonomiyaki.png" alt="Okonomiyaki" loading="lazy"></div>
+<div class="block"><img src="assets/foods/oden.png" alt="Oden" loading="lazy"></div>
+<div class="block"><img src="assets/foods/ramen.png" alt="Ramen" loading="lazy"></div>
+<div class="block"><img src="assets/foods/ramen01.png" alt="Ramen" loading="lazy"></div>
+<div class="block"><img src="assets/foods/dumpling.png" alt="Dumpling" loading="lazy"></div>
+<div class="block"><img src="assets/foods/kimchi.png" alt="Kimchi" loading="lazy"></div>
+<div class="block"><img src="assets/foods/shiso.png" alt="Pollock roe on shiso" loading="lazy"></div>
+<div class="block"><img src="assets/foods/watermelonslice.png" alt="Watermelon slice" loading="lazy"></div>
+</div>
+
+<h2><span data-lang="ko">챕터 테마</span><span data-lang="en">Chapter themes</span></h2>
+<p class="muted"><span data-lang="ko">20레벨마다 챕터가 바뀌고, 배경과 음악, 나오는 음식도 함께 바뀝니다.</span><span data-lang="en">Every 20 levels a new chapter begins, with its own background, music and foods.</span></p>
+<div class="themes">
+<figure><img src="assets/themes/kitchen.jpg" alt="Kitchen" loading="lazy"><figcaption class="muted"><span data-lang="ko">주방</span><span data-lang="en">Kitchen</span></figcaption></figure>
+<figure><img src="assets/themes/picnic.jpg" alt="Picnic" loading="lazy"><figcaption class="muted"><span data-lang="ko">피크닉</span><span data-lang="en">Picnic</span></figcaption></figure>
+<figure><img src="assets/themes/bakery.jpg" alt="Bakery" loading="lazy"><figcaption class="muted"><span data-lang="ko">베이커리</span><span data-lang="en">Bakery</span></figcaption></figure>
+<figure><img src="assets/themes/beach.jpg" alt="Beach" loading="lazy"><figcaption class="muted"><span data-lang="ko">해변</span><span data-lang="en">Beach</span></figcaption></figure>
+<figure><img src="assets/themes/winter.jpg" alt="Winter" loading="lazy"><figcaption class="muted"><span data-lang="ko">겨울</span><span data-lang="en">Winter</span></figcaption></figure>
+<figure><img src="assets/themes/night_kitchen.jpg" alt="Night kitchen" loading="lazy"><figcaption class="muted"><span data-lang="ko">밤의 주방</span><span data-lang="en">Night kitchen</span></figcaption></figure>
+<figure><img src="assets/themes/market.jpg" alt="Market" loading="lazy"><figcaption class="muted"><span data-lang="ko">시장</span><span data-lang="en">Market</span></figcaption></figure>
+<figure><img src="assets/themes/japanese_restaurant.jpg" alt="Japanese restaurant" loading="lazy"><figcaption class="muted"><span data-lang="ko">일식당</span><span data-lang="en">Japanese restaurant</span></figcaption></figure>
+</div>
+
+<h2><span data-lang="ko">기믹</span><span data-lang="en">Gimmicks</span></h2>
+<p class="muted"><span data-lang="ko">레벨이 오를수록 보드에 새로운 장치가 하나씩 등장합니다.</span><span data-lang="en">As the levels go up, new tricks join the board one by one.</span></p>
+<div class="tiles">
+<div class="tile"><img src="assets/gimmicks/hidden.png" alt="Face-down block" loading="lazy"><div><b><span data-lang="ko">뒤집힌 블록</span><span data-lang="en">Face-down blocks</span></b><span class="d" data-lang="ko">트레이에 들어가야 무슨 음식인지 보입니다. 트레이 한 칸을 걸어 보세요.</span><span class="d" data-lang="en">You only see the food once it reaches the tray. Is it worth a slot?</span></div></div>
+<div class="tile"><img src="assets/gimmicks/lock.png" alt="Lock" loading="lazy"><div><b><span data-lang="ko">자물쇠와 열쇠</span><span data-lang="en">Locks and keys</span></b><span class="d" data-lang="ko">열쇠 블록의 짝을 맞추면 같은 색 자물쇠가 모두 열립니다.</span><span class="d" data-lang="en">Pop a key block's pair and every lock of its colour opens.</span></div></div>
+<div class="tile"><img src="assets/gimmicks/timer.png" alt="Timer" loading="lazy"><div><b><span data-lang="ko">시한 블록</span><span data-lang="en">Expiring blocks</span></b><span class="d" data-lang="ko">시간이 다 되기 전에 트레이로 옮겨야 합니다.</span><span class="d" data-lang="en">Move it to the tray before its countdown runs out.</span></div></div>
+<div class="tile"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="3" y="14" width="22" height="28" rx="6" fill="#f6e7c8" stroke="#6b4a2b" stroke-width="2"/><rect x="31" y="14" width="22" height="28" rx="6" fill="#f6e7c8" stroke="#6b4a2b" stroke-width="2"/><rect x="18" y="22" width="20" height="12" rx="3" fill="#c9773a" stroke="#6b3d1a" stroke-width="2"/><g fill="#b9c3cc" stroke="#55606a" stroke-width="1.5"><rect x="21" y="20" width="4" height="16" rx="1"/><rect x="26" y="20" width="4" height="16" rx="1"/><rect x="31" y="20" width="4" height="16" rx="1"/></g></svg><div><b><span data-lang="ko">체인</span><span data-lang="en">Chains</span></b><span class="d" data-lang="ko">묶인 두 블록은 한 번에 함께 트레이로 갑니다.</span><span class="d" data-lang="en">Two chained blocks go to the tray together.</span></div></div>
+<div class="tile"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="6" width="44" height="44" rx="9" fill="#2f6fb6" stroke="#fff" stroke-width="3"/><path d="M14 14l8 8M30 12l-6 10M40 18l-8 6" stroke="#cfe9ff" stroke-width="3" stroke-linecap="round"/><path d="M12 50l3 5 3-5M24 50l3 4 3-4M38 50l3 5 3-5" fill="#e6f4ff"/></svg><div><b><span data-lang="ko">얼음</span><span data-lang="en">Ice</span></b><span class="d" data-lang="ko">바로 옆 블록이 보드를 떠나야 얼음이 녹습니다.</span><span class="d" data-lang="en">It thaws once a block right beside it leaves the board.</span></div></div>
+<div class="tile"><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="#ffe58a" opacity=".35"/><rect x="10" y="10" width="36" height="36" rx="8" fill="#ffd24a" stroke="#c98a12" stroke-width="2"/><path d="M28 4v6M28 46v6M4 28h6M46 28h6M11 11l4 4M41 41l4 4M45 11l-4 4M15 41l-4 4" stroke="#fff4c2" stroke-width="3" stroke-linecap="round"/><path d="M28 18l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#fff"/></svg><div><b><span data-lang="ko">냉장고 불빛</span><span data-lang="en">The fridge light</span></b><span class="d" data-lang="ko">빛나는 블록의 짝을 맞추면 주변의 뒤집힌 블록이 모두 보입니다.</span><span class="d" data-lang="en">Pop a glowing block's pair and the hidden blocks around it turn over.</span></div></div>
+<div class="tile"><img src="assets/boosters/coin.png" alt="Coin" loading="lazy"><div><b><span data-lang="ko">주문</span><span data-lang="en">Orders</span></b><span class="d" data-lang="ko">주문 카드의 음식을 제한 시간 안에 맞추면 클리어할 때 코인을 더 받습니다.</span><span class="d" data-lang="en">Pop the ordered food in time for extra coins when you clear the level.</span></div></div>
+<div class="tile"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="0" y="16" width="56" height="24" fill="#3a3f46"/><rect x="0" y="13" width="56" height="4" fill="#9aa6b0"/><rect x="0" y="39" width="56" height="4" fill="#9aa6b0"/><path d="M8 22l6 6-6 6M24 22l6 6-6 6M40 22l6 6-6 6" stroke="#ffb347" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b><span data-lang="ko">움직이는 줄</span><span data-lang="en">Moving rows</span></b><span class="d" data-lang="ko">컨베이어 위 블록이 쉬지 않고 돌아갑니다. 보드 위에 있을 때만 탭할 수 있어요.</span><span class="d" data-lang="en">Blocks on a conveyor keep circling. Tap them while they are over the board.</span></div></div>
+</div>
+
+<h2><span data-lang="ko">부스터</span><span data-lang="en">Boosters</span></h2>
+<p class="muted"><span data-lang="ko">막힐 때는 코인으로 부스터를 쓰세요.</span><span data-lang="en">Stuck? Spend coins on a booster.</span></p>
+<div class="tiles">
+<div class="tile"><img src="assets/boosters/undo.png" alt="Undo" loading="lazy"><div><b><span data-lang="ko">되돌리기</span><span data-lang="en">Undo</span></b><span class="d" data-lang="ko">마지막으로 옮긴 블록을 보드로 돌려보냅니다.</span><span class="d" data-lang="en">Sends the last block back to the board.</span></div></div>
+<div class="tile"><img src="assets/boosters/hint.png" alt="Hint" loading="lazy"><div><b><span data-lang="ko">힌트</span><span data-lang="en">Hint</span></b><span class="d" data-lang="ko">맞출 수 있는 짝을 알려 줍니다.</span><span class="d" data-lang="en">Shows you a pair to match.</span></div></div>
+<div class="tile"><img src="assets/boosters/shuffle.png" alt="Shuffle" loading="lazy"><div><b><span data-lang="ko">섞기</span><span data-lang="en">Shuffle</span></b><span class="d" data-lang="ko">보드의 블록을 새로 섞습니다.</span><span class="d" data-lang="en">Mixes up the blocks on the board.</span></div></div>
+<div class="tile"><img src="assets/boosters/time.png" alt="Extra time" loading="lazy"><div><b><span data-lang="ko">시간 추가</span><span data-lang="en">Extra time</span></b><span class="d" data-lang="ko">남은 시간을 늘려 줍니다.</span><span class="d" data-lang="en">Adds time to the clock.</span></div></div>
+<div class="tile"><img src="assets/boosters/fresh.png" alt="Fresh" loading="lazy"><div><b><span data-lang="ko">신선하게</span><span data-lang="en">Fresh</span></b><span class="d" data-lang="ko">보드 위 모든 시한 블록의 카운트다운을 없앱니다.</span><span class="d" data-lang="en">Takes the countdown off every expiring block.</span></div></div>
+<div class="tile"><img src="assets/boosters/slot.png" alt="Extra slot" loading="lazy"><div><b><span data-lang="ko">칸 추가</span><span data-lang="en">Extra slot</span></b><span class="d" data-lang="ko">트레이에 한 칸을 더합니다.</span><span class="d" data-lang="en">Adds a slot to the tray.</span></div></div>
+</div>
+
+<h2><span data-lang="ko">하트와 보상</span><span data-lang="en">Hearts and rewards</span></h2>
+<div class="tiles">
+<div class="tile"><img src="assets/boosters/heart.png" alt="Heart" loading="lazy"><div><b><span data-lang="ko">하트</span><span data-lang="en">Hearts</span></b><span class="d" data-lang="ko">하트 5개, 30분마다 하나씩 채워집니다. 클리어하면 하트를 잃지 않아요.</span><span class="d" data-lang="en">Five hearts, one back every 30 minutes. Clear a level and you keep yours.</span></div></div>
+<div class="tile"><img src="assets/boosters/coin.png" alt="Coin" loading="lazy"><div><b><span data-lang="ko">출석 보상과 주간 랭킹</span><span data-lang="en">Daily reward and weekly ranking</span></b><span class="d" data-lang="ko">매일 코인을 받고, 50명 그룹에서 겨뤄 주간 순위 보상을 받으세요.</span><span class="d" data-lang="en">Collect coins every day, and race a group of 50 for weekly ranking rewards.</span></div></div>
+</div>
+
+<h2><span data-lang="ko">문의</span><span data-lang="en">Contact</span></h2>
+<p><a href="mailto:sjm3labs@gmail.com">sjm3labs@gmail.com</a></p>
+<footer>
+<a href="./">Home</a><a href="./privacy-policy/"><span data-lang="ko">개인정보처리방침</span><span data-lang="en">Privacy Policy</span></a><a href="./delete-account/"><span data-lang="ko">데이터 삭제</span><span data-lang="en">Delete data</span></a><a href="mailto:sjm3labs@gmail.com">sjm3labs@gmail.com</a>
+<div style="margin-top:8px">© 2026 suseong kim (sjm3labs)</div>
+</footer>
+</div>
+<script src="./assets/site.js"></script>
+</body>
+</html>
